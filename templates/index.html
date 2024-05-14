@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Índice{% endblock %}
+{% block content %}
+
+<section class="menu-desplegable">
+    <h2>Elementos por página:</h2>
+    <form action="/" method="post">
+        <select name="valores" type="number">
+            <option value="10">10</option>
+            {% for var in listado %} 
+                {% if valor is defined and valor == var %}
+                    <option selected value="{{ var }}">{{ var }}</option>
+                {% else %}
+                    <option value="{{ var }}">{{ var }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <button type="submit" value="Enviar">Buscar</button>
+    </form>
+</section>
+
+<section class="productos">
+    {% for var in videojuegos %}
+        <div class="producto">
+            <img src="{{ var.imagen }}">
+            <div class="informacion_producto">
+                <h2>{{ var.nombre }}</h2>
+                <p>Año de estreno: {{ var.año }}</p>
+            </div>
+        </div>
+    {% endfor %}
+</section>
+
+{% endblock %}
