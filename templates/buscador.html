@@ -4,10 +4,27 @@
 
 <section class="menu-desplegable">
     <h2>Buscador de Videojuegos</h2>
-    <form action="/search" method="GET">
-        <input type="text" name="query" placeholder="Buscar...">
+    <form action="/buscador" method="post">
+        <input type="text" name="nombre" placeholder="Buscar...">
         <button type="submit">Buscar</button>
     </form>
+</section>
+
+<section class="productos">
+    {% if not videojuegos %}
+      <h2>No hay Videojuegos</h2>
+    {% else %}
+        {% for var in videojuegos %}
+        <div class="producto">
+            <img src="{{ var.imagen }}">
+            <div class="informacion_producto">
+                <h2><a href="/detalle/{{ var.nombre }}">{{ var.nombre }}</a></h2>
+                <p>Año de estreno: {{ var.año }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    {% endif %}
+
 </section>
 
 {% endblock %}
