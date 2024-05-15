@@ -6,7 +6,7 @@
     <h2>Elementos por página:</h2>
     <form action="/" method="post">
         <select name="valores" type="number">
-            <option value="10">10</option>
+            <option selected value="10">10</option>
             {% for var in listado %} 
                 {% if valor is defined and valor == var %}
                     <option selected value="{{ var }}">{{ var }}</option>
@@ -24,7 +24,7 @@
         <div class="producto">
             <img src="{{ var.imagen }}">
             <div class="informacion_producto">
-                <h2>{{ var.nombre }}</h2>
+                <h2><a href="/detalle/{{ var.nombre }}"></a>{{ var.nombre }}</h2>
                 <p>Año de estreno: {{ var.año }}</p>
             </div>
         </div>

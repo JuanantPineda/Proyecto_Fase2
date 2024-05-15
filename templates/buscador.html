@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Buscador{% endblock %}
+{% block content %}
+
+<section class="menu-desplegable">
+    <h2>Buscador de Videojuegos</h2>
+    <form action="/search" method="GET">
+        <input type="text" name="query" placeholder="Buscar...">
+        <button type="submit">Buscar</button>
+    </form>
+</section>
+
+{% endblock %}
