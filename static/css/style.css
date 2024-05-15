@@ -1,5 +1,3 @@
-/* CSS mejorado */
-
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -16,6 +14,11 @@ header {
 
 h1 {
     margin: 0;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 2.5em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 main {
@@ -29,14 +32,14 @@ main {
 }
 
 .producto {
-    width: 500px; /* Aumenta el ancho del contenedor */
-    margin-bottom: 40px; /* Aumenta el espacio entre los contenedores */
+    width: 500px;
+    margin-bottom: 40px;
     text-align: center;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    padding: 20px; /* Aumenta el padding del contenedor */
+    padding: 20px;
 }
 
 
@@ -73,11 +76,8 @@ footer {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 10px 0;
+    padding: 10px 10;
 }
-
-
-/* CSS actualizado */
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -99,7 +99,7 @@ h1 {
 
 nav {
     display: flex;
-    justify-content: center; /* Centra todo el contenido del nav */
+    justify-content: center;
 }
 
 nav ul {
@@ -121,7 +121,7 @@ nav ul li:last-child {
 nav ul li a {
     display: block;
     padding: 10px 20px;
-    color: #000; /* Cambia el color del texto a negro */
+    color: #000;
     text-decoration: none;
     transition: background-color 0.3s;
 }
@@ -141,7 +141,6 @@ main {
     flex-wrap: wrap;
 }
 
-/* CSS para el formulario desplegable */
 .search-form {
     float: right;
     margin-top: 15px;
@@ -188,6 +187,63 @@ a:hover {
     text-decoration: underline; 
 }
 
-.detalle{
+.detalle {
+    border: 3px solid #34495e;
+    border-radius: 8px;
+    box-shadow: 0 0 15px #34495e;
+    transition: all 0.3s ease;
     max-width: 700px;
 }
+  
+.detalle:hover {
+    border-color: #2c3e50;
+    box-shadow: 0 0 20px #2c3e50;
+  }
+
+.titulo {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 2.5em;
+    color: #333;
+}
+
+.tamaño {
+    font-size: 1.1em;
+}
+  
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+  
+th {
+    background-color: #f2f2f2;
+    padding: 8px;
+    text-align: center;
+}
+  
+td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd; 
+}
+  
+td:first-child {
+    border-top-left-radius: 8px;
+}
+  
+
+td:last-child {
+    border-top-right-radius: 8px;
+}
+  
+
+td:last-child {
+    border-bottom-left-radius: 8px;
+}
+  
+
+td:last-child {
+    border-bottom-right-radius: 8px;
+}
+  
