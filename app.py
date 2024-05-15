@@ -74,12 +74,37 @@ def buscador():
             diccionario = {"nombre":var["name"], "imagen": var["background_image"], "año":var["released"]}
             videojuegos.append(diccionario)
 
-        return render_template("buscador.html", videojuegos=videojuegos)
+        return render_template("buscador.html", videojuegos=videojuegos,nombre=nombre)
 
 
 @app.route('/detalle/<nombre>')
 def detalle(nombre):
-     return render_template("detalle.html",nombre=nombre)
+     
+    url = "https://api.rawg.io/api/games"
+
+    params = {
+        "key": "d4641e6e548b489f919773236c54f8bb",
+        "search": nombre,
+        "page_size": 1
+    }
+
+    response = requests.get(url, params=params)
+    
+    data = response.json()
+    videojuegos = []
+    plataforma = []
+    genero = []
+
+    for var in data["results"]:
+        diccionario = {"nombre":var["name"],"imagen": var["background_image"],"año":var["released"],"puntuacion": var["metacritic"]}
+        videojuegos.append(diccionario)
+        for var2 in var["platforms"]:
+           plataforma.append( var2["platform"]["name"])
+        for var3 in var["genres"]:
+           genero.append( var3["name"])
+
+
+    return render_template("detalle.html",videojuegos=videojuegos,plataforma=plataforma,genero=genero)
 
 app.run("0.0.0.0",5000,debug=True)
 

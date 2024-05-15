@@ -3,7 +3,20 @@
 {% block content %}
 
 <section class="menu-desplegable">
-    <p>{{ nombre }}</p>
+    {% for var in videojuegos %}
+        <p>{{var.nombre}}</p>
+        <img src="{{ var.imagen }}" class="detalle">
+        <p>{{var.año}}</p>
+        <p>{{var.puntuacion}}</p>
+    {% endfor %}
+    <p>Plataformas en la que se pueden jugar</p>
+    {% for var in plataforma %}
+        <p>{{var}}</p>
+    {% endfor %}
+    <p>Generos</p>
+    {% for var in genero %}
+    <p>{{var}}</p>
+    {% endfor %}
 </section>
 
 {% endblock %}
