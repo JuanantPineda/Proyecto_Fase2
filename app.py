@@ -1,7 +1,10 @@
 from flask import Flask, render_template, abort, redirect,request
 app = Flask(__name__)
 import requests
+import os
 
+port = os.getenv("PORT")
+key = os.getenv("key")
 
 
 @app.route('/',methods=["GET","POST"])
@@ -14,7 +17,7 @@ def index():
         url = "https://api.rawg.io/api/games"
 
         params = {
-            "key": "d4641e6e548b489f919773236c54f8bb",
+            "key": key,
             "page_size": valor
         }
 
@@ -33,7 +36,7 @@ def index():
         url = "https://api.rawg.io/api/games"
 
         params = {
-            "key": "d4641e6e548b489f919773236c54f8bb",
+            "key": key,
             "page_size": valor
         }
 
@@ -60,7 +63,7 @@ def buscador():
         url = "https://api.rawg.io/api/games"
 
         params = {
-            "key": "d4641e6e548b489f919773236c54f8bb",
+            "key": key,
             "search": nombre,
             "page_size": 1
         }
@@ -83,7 +86,7 @@ def detalle(nombre):
     url = "https://api.rawg.io/api/games"
 
     params = {
-        "key": "d4641e6e548b489f919773236c54f8bb",
+        "key": key,
         "search": nombre,
         "page_size": 1
     }
@@ -106,5 +109,5 @@ def detalle(nombre):
 
     return render_template("detalle.html",videojuegos=videojuegos,plataforma=plataforma,genero=genero)
 
-app.run("0.0.0.0",5000,debug=True)
+app.run("0.0.0.0",int(port),debug=False)
 
