@@ -109,5 +109,5 @@ def detalle(nombre):
 
     return render_template("detalle.html",videojuegos=videojuegos,plataforma=plataforma,genero=genero)
 
-app.run("0.0.0.0",int(port),debug=False)
+app.run("0.0.0.0",port,debug=False)
 
