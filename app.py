@@ -1,8 +1,8 @@
 from flask import Flask, render_template, abort, redirect,request
-app = Flask(__name__)
 import requests
 import os
 
+app = Flask(__name__)
 port = os.getenv("PORT")
 key = os.getenv("key")
 
