@@ -59,13 +59,16 @@ def buscador():
         return render_template("buscador.html", videojuegos=videojuegos)
     else:
         nombre = request.form.get("nombre")
+        puntuacion1 = request.form.get("puntuacion1")
+        puntuacion2 = request.form.get("puntuacion2")
 
         url = "https://api.rawg.io/api/games"
 
         params = {
             "key": key,
+            "metacritic": f"{puntuacion1},{puntuacion2}",
             "search": nombre,
-            "page_size": 1
+            "page_size": 10
         }
 
         response = requests.get(url, params=params)
@@ -74,11 +77,11 @@ def buscador():
         videojuegos = []
 
         for var in data["results"]:
-            diccionario = {"nombre":var["name"], "imagen": var["background_image"], "año":var["released"]}
-            videojuegos.append(diccionario)
-
-        return render_template("buscador.html", videojuegos=videojuegos,nombre=nombre)
-
+            if var["name"].lower().startswith(nombre.lower()):
+                diccionario = {"nombre": var["name"], "imagen": var["background_image"], "año": var["released"]}
+                videojuegos.append(diccionario)
+            
+        return render_template("buscador.html", videojuegos=videojuegos,nombre=nombre,puntuacion1=puntuacion1,puntuacion2=puntuacion2)
 
 @app.route('/detalle/<nombre>')
 def detalle(nombre):
@@ -92,7 +95,6 @@ def detalle(nombre):
     }
 
     response = requests.get(url, params=params)
-    
     data = response.json()
     videojuegos = []
     plataforma = []

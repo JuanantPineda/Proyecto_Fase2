@@ -5,7 +5,11 @@
 <section class="menu-desplegable">
     <h2>Buscador de Videojuegos</h2>
     <form action="/buscador" method="post">
-        <input type="text" name="nombre" placeholder="Buscar..." value="{{nombre}}">
+        <input type="text" name="nombre" placeholder="Buscar..." value="{{nombre}}" required>
+        <br>
+        <p>Introduzca la puntuacion entre un rango: </p>
+        <input type="text" name="puntuacion1" placeholder="Buscar..." value="{{puntuacion1}}">
+        <input type="text" name="puntuacion2" placeholder="Buscar..." value="{{puntuacion2}}">
         <button type="submit">Buscar</button>
     </form>
 </section>
@@ -24,7 +28,6 @@
         </div>
         {% endfor %}
     {% endif %}
-
 </section>
 
 {% endblock %}
